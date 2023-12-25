@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctm6u457gcwue"]
+
+[ext_resource type="Texture2D" uid="uid://tebp4sm0ibvl" path="res://Assets/Materials/TEMP - snowy_hillside_4k.hdr" id="1_xxf62"]
+[ext_resource type="PackedScene" uid="uid://c7lvdgp3p4saq" path="res://Assets/3D Models/Pallet Test.glb" id="2_xqolr"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gs3lo"]
+panorama = ExtResource("1_xxf62")
+
+[sub_resource type="Sky" id="Sky_8m6cf"]
+sky_material = SubResource("PanoramaSkyMaterial_gs3lo")
+
+[sub_resource type="Environment" id="Environment_1320w"]
+background_mode = 2
+sky = SubResource("Sky_8m6cf")
+sky_rotation = Vector3(0, 1.5708, 0)
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="ROOT" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1320w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 9, 0)
+light_energy = 0.543
+
+[node name="Pallet Test" parent="." instance=ExtResource("2_xqolr")]

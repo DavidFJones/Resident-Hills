@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b87qqiiji47q7"]
+
+[ext_resource type="Texture2D" uid="uid://c5lkxienypaju" path="res://Assets/Materials/Master Material Parts/Color Pallete.png" id="1_tyjdh"]
+[ext_resource type="Texture2D" uid="uid://dfjycb10kl7jf" path="res://Assets/Materials/Master Material Parts/Emission Map.png" id="2_xj1sf"]
+[ext_resource type="Texture2D" uid="uid://dssutmccs7bsh" path="res://Assets/Materials/Master Material Parts/Metal Map.png" id="3_i6giq"]
+[ext_resource type="Texture2D" uid="uid://bnsiyw1ywklkk" path="res://Assets/Materials/Master Material Parts/Roughness Map.png" id="4_jeqjl"]
+
+[resource]
+albedo_texture = ExtResource("1_tyjdh")
+metallic = 1.0
+metallic_texture = ExtResource("3_i6giq")
+roughness_texture = ExtResource("4_jeqjl")
+emission_enabled = true
+emission_energy_multiplier = 20.0
+emission_texture = ExtResource("2_xj1sf")
