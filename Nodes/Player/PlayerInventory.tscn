@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs12ketd83u1d"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/PlayerInventory.gd" id="1_tmrui"]
+[ext_resource type="Texture2D" uid="uid://h10rdfooa8ui" path="res://Assets/UI/TEMP Panel.png" id="1_x73d8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsfcj"]
+bg_color = Color(0, 0, 0, 0.356863)
+
+[sub_resource type="Theme" id="Theme_80527"]
+
+[node name="PlayerInventory" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tmrui")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -650.0
+offset_bottom = 1079.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsfcj")
+
+[node name="ItemName" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 40.0
+offset_right = 315.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Item Name[/center]"
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -327.5
+offset_right = 208.0
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_80527")
+columns = 3
+
+[node name="Button" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button2" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button3" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button4" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button5" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button6" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button7" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button8" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="Button9" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("1_x73d8")
+
+[node name="ItemDesc" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -373.0
+offset_right = 250.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Item Description"
+
+[connection signal="mouse_entered" from="Panel/GridContainer/Button" to="." method="_on_item_focus_entered" binds= [0]]
+[connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_inventory_button_pressed" binds= [0]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button2" to="." method="_on_item_focus_entered" binds= [1]]
+[connection signal="pressed" from="Panel/GridContainer/Button2" to="." method="_on_inventory_button_pressed" binds= [1]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button3" to="." method="_on_item_focus_entered" binds= [2]]
+[connection signal="pressed" from="Panel/GridContainer/Button3" to="." method="_on_inventory_button_pressed" binds= [2]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button4" to="." method="_on_item_focus_entered" binds= [3]]
+[connection signal="pressed" from="Panel/GridContainer/Button4" to="." method="_on_inventory_button_pressed" binds= [3]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button5" to="." method="_on_item_focus_entered" binds= [4]]
+[connection signal="pressed" from="Panel/GridContainer/Button5" to="." method="_on_inventory_button_pressed" binds= [4]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button6" to="." method="_on_item_focus_entered" binds= [5]]
+[connection signal="pressed" from="Panel/GridContainer/Button6" to="." method="_on_inventory_button_pressed" binds= [5]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button7" to="." method="_on_item_focus_entered" binds= [6]]
+[connection signal="pressed" from="Panel/GridContainer/Button7" to="." method="_on_inventory_button_pressed" binds= [6]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button8" to="." method="_on_item_focus_entered" binds= [7]]
+[connection signal="pressed" from="Panel/GridContainer/Button8" to="." method="_on_inventory_button_pressed" binds= [7]]
+[connection signal="mouse_entered" from="Panel/GridContainer/Button9" to="." method="_on_item_focus_entered" binds= [8]]
+[connection signal="pressed" from="Panel/GridContainer/Button9" to="." method="_on_inventory_button_pressed" binds= [8]]

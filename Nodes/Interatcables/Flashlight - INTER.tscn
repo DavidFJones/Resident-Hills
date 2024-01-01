@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchyyg5kg46tg"]
+
+[ext_resource type="ArrayMesh" uid="uid://7k63qfv85pad" path="res://Assets/3D Models/Player Model.obj" id="1_xggtu"]
+[ext_resource type="Script" path="res://Assets/Scripts/Interactions/GrabbableItem.gd" id="1_yrphd"]
+[ext_resource type="Resource" uid="uid://c4cr6dfy4svu0" path="res://Assets/Custom Resources/items.tres" id="2_s8aks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrbda"]
+size = Vector3(0.506866, 0.539063, 0.257889)
+
+[node name="Flashlight - INTER" type="StaticBody3D" groups=["Interactables"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_yrphd")
+CustomItem = ExtResource("2_s8aks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444031, 0.230469, -0.0149612)
+shape = SubResource("BoxShape3D_hrbda")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("1_xggtu")
+skeleton = NodePath("../..")

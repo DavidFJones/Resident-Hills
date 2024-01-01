@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CustomItems" load_steps=2 format=3 uid="uid://c4cr6dfy4svu0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/items.gd" id="1_q4ttu"]
+
+[resource]
+script = ExtResource("1_q4ttu")
+ID = 0
+Name = "Flashlight"
+Description = "Flashlight item descritption"
+Priority = 1
+Stackable = false
+StackCount = 0
+StartingStackCount = 0
+Equipable = true
+CanDrop = true

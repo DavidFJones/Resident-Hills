@@ -1,0 +1,13 @@
+# Blender 3.6.5 MTL File: 'Resident Hills Player.blend'
+# www.blender.org
+
+newmtl Master_Material
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd D:/Game projects/Resident-Hills/Assets/Materials/Master Material Parts/Color Pallete.png
+map_Ns D:/Game projects/Resident-Hills/Assets/Materials/Master Material Parts/Roughness Map.png
+map_refl D:/Game projects/Resident-Hills/Assets/Materials/Master Material Parts/Metal Map.png
+map_Ke D:/Game projects/Resident-Hills/Assets/Materials/Master Material Parts/Emission Map.png

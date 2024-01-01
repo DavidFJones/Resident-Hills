@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt06jo6na2my4"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Interactions/GrabbableItem.gd" id="1_8exn4"]
+[ext_resource type="Script" path="res://Assets/Scripts/items.gd" id="2_lqc7t"]
+[ext_resource type="ArrayMesh" uid="uid://7k63qfv85pad" path="res://Assets/3D Models/Player Model.obj" id="3_5uu0d"]
+
+[sub_resource type="Resource" id="Resource_5bs3b"]
+script = ExtResource("2_lqc7t")
+ID = 1
+Name = "Hand Gun"
+Description = "A very cool description for a handgun"
+Priority = 1
+Stackable = false
+StackCount = 0
+StartingStackCount = 0
+Equipable = true
+CanDrop = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hrbda"]
+size = Vector3(0.506866, 0.539063, 0.257889)
+
+[node name="Hand Gun - INTER" type="StaticBody3D" groups=["Interactables"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_8exn4")
+CustomItem = SubResource("Resource_5bs3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444031, 0.230469, -0.0149612)
+shape = SubResource("BoxShape3D_hrbda")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("3_5uu0d")
+skeleton = NodePath("../..")

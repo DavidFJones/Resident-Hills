@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c7lvdgp3p4saq"
-path="res://.godot/imported/Pallet Test.glb-4d6f58adbe04b41654d1b2447fc70139.scn"
+uid="uid://bxsy31wfc4pla"
+path="res://.godot/imported/Enviro Test 1.glb-1b2892f2c94ac6a972822da6f8629c61.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Pallet Test.glb"
-dest_files=["res://.godot/imported/Pallet Test.glb-4d6f58adbe04b41654d1b2447fc70139.scn"]
+source_file="res://Assets/3D Models/Enviro Test 1.glb"
+dest_files=["res://.godot/imported/Enviro Test 1.glb-1b2892f2c94ac6a972822da6f8629c61.scn"]
 
 [params]
 

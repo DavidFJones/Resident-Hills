@@ -1,5 +1,13 @@
 extends CharacterBody3D
 
+#bool used to prevent player movement while using the inventory
+var inventoryOpen := false
+
+#reference to our players inventory
+var inventoryNode
+
+#reference to our players interaction collision box
+var interactionBoxNode
 
 #base walking speed for the player
 @export var walkSpeed = 5.0
@@ -13,6 +21,7 @@ var cameraLookCollider
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
 func _ready():
 	#If we do not have a main camera
 	#and if there is one in the scenetree, get a reference to it
@@ -23,6 +32,9 @@ func _ready():
 	#if we do not have a camera floor collider, get reference
 	if cameraLookCollider == null:
 		cameraLookCollider = $CameraLookCollider
+
+	inventoryNode = $PlayerInventory
+	interactionBoxNode = $ItemCheckBox
 
 func rotate_Player():
 	
@@ -73,7 +85,42 @@ func move_Player(delta):
 
 	move_and_slide()
 
+func toggle_inventory():
+	inventoryOpen = !inventoryOpen
+	inventoryNode.visible = inventoryOpen
+
+func interact():
+	#reference for the object we wish to interact with 
+	var item
+	
+	var highestPriority = 0
+	#loop through all collisions, and get the one with the highest priority
+	for body in interactionBoxNode.get_overlapping_bodies():
+		if body.is_in_group("Interactables"):
+			if body.CustomItem.Priority > highestPriority:
+				item = body
+				highestPriority = body.CustomItem.Priority
+
+	#tell the object we want to interact with it if if we found one
+	if highestPriority > 0:
+		item.interaction()
+
+func passInteraction(item,interactionType):
+	#a really ugly way of interacting with an object, 
+	#then having that object "dynamically" talk to our inventory if needed
+	if interactionType == "itemPickup":
+		inventoryNode.pickup_item(item)
+
 func _physics_process(delta):
+	if Input.is_action_just_pressed("input_inventory"):
+		toggle_inventory()
+
+	if inventoryOpen:
+		return
+
+	if Input.is_action_just_pressed("input_Interact"):
+		interact()
+
 	rotate_Player()
 
 	move_Player(delta)

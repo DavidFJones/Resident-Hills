@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxa3k7hd6jj0s"
+path="res://.godot/imported/Enviro Test.obj-5f7520a6ecd43e52b09c9d1885c6b37c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Enviro Test.obj-5f7520a6ecd43e52b09c9d1885c6b37c.mesh"]
+
+source_file="res://Assets/3D Models/Enviro Test.obj"
+dest_files=["res://.godot/imported/Enviro Test.obj-5f7520a6ecd43e52b09c9d1885c6b37c.mesh", "res://.godot/imported/Enviro Test.obj-5f7520a6ecd43e52b09c9d1885c6b37c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
