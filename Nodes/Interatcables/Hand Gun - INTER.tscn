@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt06jo6na2my4"]
+[gd_scene load_steps=7 format=3 uid="uid://dt06jo6na2my4"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Interactions/GrabbableItem.gd" id="1_8exn4"]
-[ext_resource type="Script" path="res://Assets/Scripts/items.gd" id="2_lqc7t"]
+[ext_resource type="Texture2D" uid="uid://o24fpjrv4r6u" path="res://Assets/Sprites/TEMP - handgun art.png" id="2_h5xsx"]
 [ext_resource type="ArrayMesh" uid="uid://7k63qfv85pad" path="res://Assets/3D Models/Player Model.obj" id="3_5uu0d"]
+[ext_resource type="Script" path="res://Assets/Scripts/Custom Scripts/items.gd" id="3_6f7i2"]
 
 [sub_resource type="Resource" id="Resource_5bs3b"]
-script = ExtResource("2_lqc7t")
+script = ExtResource("3_6f7i2")
 ID = 1
 Name = "Hand Gun"
 Description = "A very cool description for a handgun"
+Img = ExtResource("2_h5xsx")
 Priority = 1
 Stackable = false
 StackCount = 0

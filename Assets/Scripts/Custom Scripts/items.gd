@@ -5,7 +5,7 @@ class_name CustomItems
 @export var ID : int = 0
 @export var Name : String = "Name"
 @export var Description : String = "Description"
-@export var Icon : Texture2D
+@export var Img : CompressedTexture2D
 ## Used to determine the "most important" item the player should interact with if multiple items are overlapping
 @export var Priority := 1
 ## Used to see if this item should stack in the inventory

@@ -41,9 +41,8 @@ offset_bottom = 126.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[center]Item Name[/center]"
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="ItemGrid" type="GridContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,50 +59,68 @@ mouse_filter = 2
 theme = SubResource("Theme_80527")
 columns = 3
 
-[node name="Button" type="Button" parent="Panel/GridContainer"]
+[node name="Button" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button2" type="Button" parent="Panel/GridContainer"]
+[node name="Button2" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button3" type="Button" parent="Panel/GridContainer"]
+[node name="Button3" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button4" type="Button" parent="Panel/GridContainer"]
+[node name="Button4" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button5" type="Button" parent="Panel/GridContainer"]
+[node name="Button5" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button6" type="Button" parent="Panel/GridContainer"]
+[node name="Button6" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button7" type="Button" parent="Panel/GridContainer"]
+[node name="Button7" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button8" type="Button" parent="Panel/GridContainer"]
+[node name="Button8" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
-[node name="Button9" type="Button" parent="Panel/GridContainer"]
+[node name="Button9" type="Button" parent="Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
+expand_icon = true
 
 [node name="ItemDesc" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -120,23 +137,22 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "Item Description"
 
-[connection signal="mouse_entered" from="Panel/GridContainer/Button" to="." method="_on_item_focus_entered" binds= [0]]
-[connection signal="pressed" from="Panel/GridContainer/Button" to="." method="_on_inventory_button_pressed" binds= [0]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button2" to="." method="_on_item_focus_entered" binds= [1]]
-[connection signal="pressed" from="Panel/GridContainer/Button2" to="." method="_on_inventory_button_pressed" binds= [1]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button3" to="." method="_on_item_focus_entered" binds= [2]]
-[connection signal="pressed" from="Panel/GridContainer/Button3" to="." method="_on_inventory_button_pressed" binds= [2]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button4" to="." method="_on_item_focus_entered" binds= [3]]
-[connection signal="pressed" from="Panel/GridContainer/Button4" to="." method="_on_inventory_button_pressed" binds= [3]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button5" to="." method="_on_item_focus_entered" binds= [4]]
-[connection signal="pressed" from="Panel/GridContainer/Button5" to="." method="_on_inventory_button_pressed" binds= [4]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button6" to="." method="_on_item_focus_entered" binds= [5]]
-[connection signal="pressed" from="Panel/GridContainer/Button6" to="." method="_on_inventory_button_pressed" binds= [5]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button7" to="." method="_on_item_focus_entered" binds= [6]]
-[connection signal="pressed" from="Panel/GridContainer/Button7" to="." method="_on_inventory_button_pressed" binds= [6]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button8" to="." method="_on_item_focus_entered" binds= [7]]
-[connection signal="pressed" from="Panel/GridContainer/Button8" to="." method="_on_inventory_button_pressed" binds= [7]]
-[connection signal="mouse_entered" from="Panel/GridContainer/Button9" to="." method="_on_item_focus_entered" binds= [8]]
-[connection signal="pressed" from="Panel/GridContainer/Button9" to="." method="_on_inventory_button_pressed" binds= [8]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button" to="." method="_on_item_focus_entered" binds= [0]]
+[connection signal="pressed" from="Panel/ItemGrid/Button" to="." method="_on_inventory_button_pressed" binds= [0]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button2" to="." method="_on_item_focus_entered" binds= [1]]
+[connection signal="pressed" from="Panel/ItemGrid/Button2" to="." method="_on_inventory_button_pressed" binds= [1]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button3" to="." method="_on_item_focus_entered" binds= [2]]
+[connection signal="pressed" from="Panel/ItemGrid/Button3" to="." method="_on_inventory_button_pressed" binds= [2]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button4" to="." method="_on_item_focus_entered" binds= [3]]
+[connection signal="pressed" from="Panel/ItemGrid/Button4" to="." method="_on_inventory_button_pressed" binds= [3]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button5" to="." method="_on_item_focus_entered" binds= [4]]
+[connection signal="pressed" from="Panel/ItemGrid/Button5" to="." method="_on_inventory_button_pressed" binds= [4]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button6" to="." method="_on_item_focus_entered" binds= [5]]
+[connection signal="pressed" from="Panel/ItemGrid/Button6" to="." method="_on_inventory_button_pressed" binds= [5]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button7" to="." method="_on_item_focus_entered" binds= [6]]
+[connection signal="pressed" from="Panel/ItemGrid/Button7" to="." method="_on_inventory_button_pressed" binds= [6]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button8" to="." method="_on_item_focus_entered" binds= [7]]
+[connection signal="pressed" from="Panel/ItemGrid/Button8" to="." method="_on_inventory_button_pressed" binds= [7]]
+[connection signal="mouse_entered" from="Panel/ItemGrid/Button9" to="." method="_on_item_focus_entered" binds= [8]]
+[connection signal="pressed" from="Panel/ItemGrid/Button9" to="." method="_on_inventory_button_pressed" binds= [8]]
