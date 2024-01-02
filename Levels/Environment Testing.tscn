@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://y7f17fhts0l8"]
+[gd_scene load_steps=8 format=3 uid="uid://y7f17fhts0l8"]
 
 [ext_resource type="Material" uid="uid://b87qqiiji47q7" path="res://Assets/Materials/Master Color Material.tres" id="1_dwcjc"]
-[ext_resource type="PackedScene" uid="uid://cliuvy4a0k0vt" path="res://Nodes/gamemanager.tscn" id="1_etapi"]
 [ext_resource type="ArrayMesh" uid="uid://dxa3k7hd6jj0s" path="res://Assets/3D Models/Enviro Test.obj" id="2_g6e45"]
 [ext_resource type="PackedScene" uid="uid://2ba6uqyo6yx1" path="res://Nodes/Player/Main Camera.tscn" id="3_fu4eq"]
 [ext_resource type="PackedScene" uid="uid://b0hqw017gw7cx" path="res://Nodes/Player/Player.tscn" id="4_4tpbq"]
@@ -32,8 +31,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_4tpbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.688272, 3)
-
-[node name="GAMEMANAGER" parent="." instance=ExtResource("1_etapi")]
 
 [node name="Flashlight - INTER" parent="." instance=ExtResource("6_docqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.45284, -2)

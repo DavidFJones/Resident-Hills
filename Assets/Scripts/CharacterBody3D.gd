@@ -3,9 +3,6 @@ extends CharacterBody3D
 #bool used to prevent player movement while using the inventory
 var inventoryOpen := false
 
-#reference to our players inventory
-var inventoryNode
-
 #reference to our players interaction collision box
 var interactionBoxNode
 
@@ -33,7 +30,6 @@ func _ready():
 	if cameraLookCollider == null:
 		cameraLookCollider = $CameraLookCollider
 
-	inventoryNode = $PlayerInventory
 	interactionBoxNode = $ItemCheckBox
 
 func rotate_Player():
@@ -87,7 +83,7 @@ func move_Player(delta):
 
 func toggle_inventory():
 	inventoryOpen = !inventoryOpen
-	inventoryNode.toggle_inventory_open(inventoryOpen)
+	GameManager.inventoryUI.toggle_inventory_open(inventoryOpen)
 
 func interact():
 	#reference for the object we wish to interact with 
@@ -111,7 +107,7 @@ func passInteraction(item,interactionType):
 
 	#checks for a string type and uses that to determine what to do wit
 	if interactionType == "itemPickup":
-		inventoryNode.pickup_item(item)
+		GameManager.inventoryUI.pickup_item(item)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("input_inventory"):

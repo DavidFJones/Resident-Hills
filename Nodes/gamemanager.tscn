@@ -1,19 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cliuvy4a0k0vt"]
+[gd_scene load_steps=4 format=3 uid="uid://cliuvy4a0k0vt"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/GAMEMANAGER.gd" id="1_81m5w"]
+[ext_resource type="PackedScene" uid="uid://bs12ketd83u1d" path="res://Nodes/Player/PlayerInventory.tscn" id="2_5tqig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8juvm"]
 bg_color = Color(0, 0, 0, 0.560784)
 
-[node name="GAMEMANAGER" type="Node"]
+[node name="GameManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_81m5w")
 
-[node name="PauseUI" type="Control" parent="."]
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInventory" parent="GameUI" instance=ExtResource("2_5tqig")]
+process_mode = 1
+visible = false
+layout_mode = 1
+
+[node name="PauseUI" type="Control" parent="GameUI"]
 process_priority = 1
 visible = false
 z_index = 100
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,7 +37,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="PauseUI"]
+[node name="Panel" type="Panel" parent="GameUI/PauseUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8juvm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PauseUI/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="GameUI/PauseUI/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,7 +63,7 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]P A U S E D[/center]"
 
-[node name="Button" type="Button" parent="PauseUI/Panel"]
+[node name="Button" type="Button" parent="GameUI/PauseUI/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -65,4 +79,4 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 text = "Q U I T"
 
-[connection signal="pressed" from="PauseUI/Panel/Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameUI/PauseUI/Panel/Button" to="." method="_on_quit_button_pressed"]

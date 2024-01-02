@@ -3,16 +3,21 @@ extends Node
 #bool for pause state
 var paused := false
 
-#reference to our pause screen
-var pauseUINode
+#References -------
+#UI Elements
+#Pause Screen
+var pauseUI
+#Inventory Screen
+var inventoryUI
 
 func _ready():
-	pauseUINode = $PauseUI
+	pauseUI = $GameUI/PauseUI
+	inventoryUI = $GameUI/PlayerInventory
 
 func toggle_pause():
 	paused = !paused
 	get_tree().paused = paused
-	pauseUINode.visible = paused
+	pauseUI.visible = paused
 
 func _process(delta):
 	if Input.is_action_just_pressed("input_Pause"):

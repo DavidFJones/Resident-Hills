@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0hqw017gw7cx"]
+[gd_scene load_steps=7 format=3 uid="uid://b0hqw017gw7cx"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/CharacterBody3D.gd" id="1_0qxni"]
 [ext_resource type="Material" uid="uid://b87qqiiji47q7" path="res://Assets/Materials/Master Color Material.tres" id="2_jc4ne"]
 [ext_resource type="ArrayMesh" uid="uid://7k63qfv85pad" path="res://Assets/3D Models/Player Model.obj" id="3_0shva"]
-[ext_resource type="PackedScene" uid="uid://bs12ketd83u1d" path="res://Nodes/Player/PlayerInventory.tscn" id="4_g4sk1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ujfol"]
 
@@ -42,8 +41,5 @@ shape = SubResource("HeightMapShape3D_qt548")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
 material_override = ExtResource("2_jc4ne")
 mesh = ExtResource("3_0shva")
-
-[node name="PlayerInventory" parent="." instance=ExtResource("4_g4sk1")]
-visible = false
 
 [connection signal="body_entered" from="ItemCheckBox" to="." method="_on_item_check_box_body_entered"]
