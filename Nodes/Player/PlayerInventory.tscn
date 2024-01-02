@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs12ketd83u1d"]
+[gd_scene load_steps=6 format=3 uid="uid://bs12ketd83u1d"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/PlayerInventory.gd" id="1_tmrui"]
 [ext_resource type="Texture2D" uid="uid://h10rdfooa8ui" path="res://Assets/UI/TEMP Panel.png" id="1_x73d8"]
+[ext_resource type="Texture2D" uid="uid://dabtmua1sk1jm" path="res://icon.svg" id="3_v2xei"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsfcj"]
 bg_color = Color(0, 0, 0, 0.356863)
@@ -18,6 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tmrui")
+defaultInventoryIcon = ExtResource("1_x73d8")
+popupOffset = Vector2(-118, 0)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -66,12 +69,66 @@ mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
 
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button2" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button2"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button3" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -80,12 +137,66 @@ mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
 
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button3"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button3"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button4" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button4"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button4"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button5" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -94,12 +205,66 @@ mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
 
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button5"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button5"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button6" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button6"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button6"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button7" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -108,6 +273,33 @@ mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
 
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button7"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button7"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button8" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -115,12 +307,66 @@ mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
 
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button8"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button8"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button9" type="Button" parent="Panel/ItemGrid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("1_x73d8")
 expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="Panel/ItemGrid/Button9"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_v2xei")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="Panel/ItemGrid/Button9"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ItemDesc" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -130,13 +376,66 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -250.0
-offset_top = -373.0
+offset_top = -360.0
 offset_right = 250.0
-offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
+
+[node name="PopupOptions" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 216.0
+offset_right = 115.0
+offset_bottom = 344.0
+theme_override_constants/separation = 1
+
+[node name="Button_Equip" type="Button" parent="Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Equip"
+
+[node name="Button_Move" type="Button" parent="Panel/PopupOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Move"
+
+[node name="Button_Combine" type="Button" parent="Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Combine
+"
+
+[node name="Button_Examine" type="Button" parent="Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Examine
+"
+
+[node name="Button_Drop" type="Button" parent="Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Drop
+"
+
+[node name="Button_Cancel" type="Button" parent="Panel/PopupOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Cancel
+"
+
+[node name="MovingIcon" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+expand_mode = 2
 
 [connection signal="mouse_entered" from="Panel/ItemGrid/Button" to="." method="_on_item_focus_entered" binds= [0]]
 [connection signal="pressed" from="Panel/ItemGrid/Button" to="." method="_on_inventory_button_pressed" binds= [0]]
@@ -156,3 +455,7 @@ bbcode_enabled = true
 [connection signal="pressed" from="Panel/ItemGrid/Button8" to="." method="_on_inventory_button_pressed" binds= [7]]
 [connection signal="mouse_entered" from="Panel/ItemGrid/Button9" to="." method="_on_item_focus_entered" binds= [8]]
 [connection signal="pressed" from="Panel/ItemGrid/Button9" to="." method="_on_inventory_button_pressed" binds= [8]]
+[connection signal="pressed" from="Panel/PopupOptions/Button_Equip" to="." method="_on_button_equip_pressed"]
+[connection signal="button_down" from="Panel/PopupOptions/Button_Move" to="." method="_on_button_move_button_down"]
+[connection signal="pressed" from="Panel/PopupOptions/Button_Drop" to="." method="_on_button_drop_pressed"]
+[connection signal="pressed" from="Panel/PopupOptions/Button_Cancel" to="." method="_on_button_cancel_pressed"]

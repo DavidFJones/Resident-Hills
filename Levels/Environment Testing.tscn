@@ -41,5 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.45284, -2)
 [node name="Hand Gun - INTER" parent="." instance=ExtResource("7_5g3qr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04837, -1.27922, -6.06249)
 
+[connection signal="input_event" from="Flashlight - INTER" to="Player" method="_on_flashlight__inter_input_event"]
 [connection signal="interact_item" from="Flashlight - INTER" to="Player" method="passInteraction"]
 [connection signal="interact_item" from="Hand Gun - INTER" to="Player" method="passInteraction"]

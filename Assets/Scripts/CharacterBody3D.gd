@@ -87,7 +87,7 @@ func move_Player(delta):
 
 func toggle_inventory():
 	inventoryOpen = !inventoryOpen
-	inventoryNode.visible = inventoryOpen
+	inventoryNode.toggle_inventory_open(inventoryOpen)
 
 func interact():
 	#reference for the object we wish to interact with 
@@ -108,6 +108,8 @@ func interact():
 func passInteraction(item,interactionType):
 	#a really ugly way of interacting with an object, 
 	#then having that object "dynamically" talk to our inventory if needed
+
+	#checks for a string type and uses that to determine what to do wit
 	if interactionType == "itemPickup":
 		inventoryNode.pickup_item(item)
 

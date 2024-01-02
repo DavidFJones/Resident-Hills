@@ -13,10 +13,13 @@ Description = "Flashlight item descritption"
 Img = ExtResource("2_58hsl")
 Priority = 1
 Stackable = false
-StackCount = 0
+MaxStackCount = 0
 StartingStackCount = 0
 Equipable = true
+CanCombine = false
 CanDrop = true
+MaxAmmo = 40
+StartingAmmo = 20
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hrbda"]
 size = Vector3(0.506866, 0.539063, 0.257889)
