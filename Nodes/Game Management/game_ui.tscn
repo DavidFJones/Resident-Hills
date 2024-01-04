@@ -1,0 +1,551 @@
+[gd_scene load_steps=8 format=3 uid="uid://dik4idu12mvtj"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Game Management/gameplay_ui.gd" id="1_3f2dl"]
+[ext_resource type="Script" path="res://Assets/Scripts/PlayerInventory.gd" id="1_17gsc"]
+[ext_resource type="Texture2D" uid="uid://h10rdfooa8ui" path="res://Assets/UI/TEMP Panel.png" id="2_1yhsw"]
+[ext_resource type="Texture2D" uid="uid://dabtmua1sk1jm" path="res://icon.svg" id="3_a340u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsfcj"]
+bg_color = Color(0, 0, 0, 0.356863)
+
+[sub_resource type="Theme" id="Theme_80527"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8juvm"]
+bg_color = Color(0, 0, 0, 0.560784)
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3f2dl")
+
+[node name="PlayerInventory" type="Control" parent="."]
+process_mode = 1
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_17gsc")
+defaultInventoryIcon = ExtResource("2_1yhsw")
+popupOffset = Vector2(-118, 0)
+
+[node name="Panel" type="Panel" parent="PlayerInventory"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -650.0
+offset_bottom = 1079.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsfcj")
+
+[node name="ItemName" type="RichTextLabel" parent="PlayerInventory/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 40.0
+offset_right = 315.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+
+[node name="ItemGrid" type="GridContainer" parent="PlayerInventory/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -327.5
+offset_right = 208.0
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_80527")
+columns = 3
+
+[node name="Button" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button2"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button2"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button3"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button3"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button4"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button4"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button5"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button5"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button6" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button6"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button6"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button7" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button7"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button7"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button8" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button8"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button8"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button9" type="Button" parent="PlayerInventory/Panel/ItemGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("2_1yhsw")
+expand_icon = true
+
+[node name="EquipIcon" type="TextureRect" parent="PlayerInventory/Panel/ItemGrid/Button9"]
+visible = false
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 58.0
+texture = ExtResource("3_a340u")
+expand_mode = 1
+
+[node name="AmmoCount" type="Label" parent="PlayerInventory/Panel/ItemGrid/Button9"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -33.0
+offset_right = -2.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc" type="RichTextLabel" parent="PlayerInventory/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -360.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="PopupOptions" type="VBoxContainer" parent="PlayerInventory/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 216.0
+offset_right = 115.0
+offset_bottom = 344.0
+theme_override_constants/separation = 1
+
+[node name="Button_Equip" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Equip"
+
+[node name="Button_Move" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Move"
+
+[node name="Button_Combine" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Combine
+"
+
+[node name="Button_Examine" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Examine
+"
+
+[node name="Button_Drop" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Drop
+"
+
+[node name="Button_Cancel" type="Button" parent="PlayerInventory/Panel/PopupOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Cancel
+"
+
+[node name="MovingIcon" type="TextureRect" parent="PlayerInventory"]
+clip_contents = true
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+expand_mode = 2
+
+[node name="PauseUI" type="Control" parent="."]
+process_mode = 3
+process_priority = 1
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="PauseUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8juvm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -621.0
+offset_top = -36.0
+offset_right = 621.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]P A U S E D[/center]"
+
+[node name="Quit_Button" type="Button" parent="PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.5
+offset_top = -274.0
+offset_right = 86.5
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Q U I T"
+
+[node name="Reload_Button" type="Button" parent="PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = -127.0
+offset_right = 51.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "R E L O A D"
+
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button" to="PlayerInventory" method="_on_item_focus_entered" binds= [0]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [0]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button2" to="PlayerInventory" method="_on_item_focus_entered" binds= [1]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button2" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [1]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button3" to="PlayerInventory" method="_on_item_focus_entered" binds= [2]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button3" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [2]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button4" to="PlayerInventory" method="_on_item_focus_entered" binds= [3]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button4" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [3]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button5" to="PlayerInventory" method="_on_item_focus_entered" binds= [4]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button5" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [4]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button6" to="PlayerInventory" method="_on_item_focus_entered" binds= [5]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button6" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [5]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button7" to="PlayerInventory" method="_on_item_focus_entered" binds= [6]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button7" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [6]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button8" to="PlayerInventory" method="_on_item_focus_entered" binds= [7]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button8" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [7]]
+[connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button9" to="PlayerInventory" method="_on_item_focus_entered" binds= [8]]
+[connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button9" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [8]]
+[connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Equip" to="PlayerInventory" method="_on_button_equip_pressed"]
+[connection signal="button_down" from="PlayerInventory/Panel/PopupOptions/Button_Move" to="PlayerInventory" method="_on_button_move_button_down"]
+[connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Drop" to="PlayerInventory" method="_on_button_drop_pressed"]
+[connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Cancel" to="PlayerInventory" method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="PauseUI/Panel/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseUI/Panel/Reload_Button" to="." method="_on_reload_button_pressed"]

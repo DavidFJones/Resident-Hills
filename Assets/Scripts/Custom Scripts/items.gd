@@ -36,3 +36,6 @@ var CurrentAmmo : int = 0
 #used for key items. Allows the game to change if this item can be dropped after certain conditions are met
 var HasBeenUsed : bool = false
 
+#called when this node enters the scene
+func _init():
+	GameManager.register_new_item(self)

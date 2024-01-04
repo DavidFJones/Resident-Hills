@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c30usswxmwu4c"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Game Management/itemHTTP.gd" id="1_1ds47"]
+
+[node name="HTTPRequest" type="HTTPRequest"]
+script = ExtResource("1_1ds47")

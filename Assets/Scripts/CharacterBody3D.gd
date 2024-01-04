@@ -107,7 +107,7 @@ func passInteraction(item,interactionType):
 
 	#checks for a string type and uses that to determine what to do wit
 	if interactionType == "itemPickup":
-		GameManager.inventoryUI.pickup_item(item)
+		GameManager.inventodryUI.pickup_item(item)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("input_inventory"):
