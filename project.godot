@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Nodes/GameManager.tscn"
+GameManager="*res://Nodes/Game Management/GameManager.tscn"
 
 [filesystem]
 

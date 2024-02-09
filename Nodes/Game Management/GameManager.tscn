@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cliuvy4a0k0vt"]
+[gd_scene load_steps=4 format=3 uid="uid://cliuvy4a0k0vt"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/GAMEMANAGER.gd" id="1_81m5w"]
 [ext_resource type="Script" path="res://Assets/Scripts/Game Management/UIManager.gd" id="2_t6kg8"]
+[ext_resource type="PackedScene" uid="uid://dik4idu12mvtj" path="res://Nodes/Game Management/game_ui.tscn" id="3_oxlel"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
@@ -9,3 +10,6 @@ script = ExtResource("1_81m5w")
 
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("2_t6kg8")
+
+[node name="GameUI" parent="UIManager" instance=ExtResource("3_oxlel")]
+visible = false

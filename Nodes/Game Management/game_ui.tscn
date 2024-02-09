@@ -517,13 +517,29 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -51.5
-offset_top = -127.0
+offset_top = -158.0
 offset_right = 51.5
-offset_bottom = -78.0
+offset_bottom = -109.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 12
 text = "R E L O A D"
+
+[node name="HTTP_Refresh_Button" type="Button" parent="PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -92.0
+offset_right = 52.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "R E F R E S H"
 
 [connection signal="mouse_entered" from="PlayerInventory/Panel/ItemGrid/Button" to="PlayerInventory" method="_on_item_focus_entered" binds= [0]]
 [connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [0]]
@@ -549,3 +565,4 @@ text = "R E L O A D"
 [connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Cancel" to="PlayerInventory" method="_on_button_cancel_pressed"]
 [connection signal="pressed" from="PauseUI/Panel/Quit_Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PauseUI/Panel/Reload_Button" to="." method="_on_reload_button_pressed"]
+[connection signal="pressed" from="PauseUI/Panel/HTTP_Refresh_Button" to="." method="_on_http_refresh_button_pressed"]

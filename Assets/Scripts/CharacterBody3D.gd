@@ -18,7 +18,6 @@ var cameraLookCollider
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
 func _ready():
 	#If we do not have a main camera
 	#and if there is one in the scenetree, get a reference to it
@@ -107,7 +106,7 @@ func passInteraction(item,interactionType):
 
 	#checks for a string type and uses that to determine what to do wit
 	if interactionType == "itemPickup":
-		GameManager.inventodryUI.pickup_item(item)
+		GameManager.inventoryUI.pickup_item(item)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("input_inventory"):

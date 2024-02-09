@@ -10,6 +10,7 @@ bg_color = Color(0, 0, 0, 0.356863)
 [sub_resource type="Theme" id="Theme_80527"]
 
 [node name="PlayerInventory" type="Control"]
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
