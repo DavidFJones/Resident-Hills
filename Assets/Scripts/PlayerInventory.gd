@@ -27,6 +27,13 @@ var moveCancelledEarly : bool = false
 #a reference to our icon that we wish to have follow the mouse position when moving an item
 var movingIcon
 
+#a bool to determine if we are intending to combine an object. Used to control state across multiple functions
+var combineItem : bool = false
+
+#variables for item references. Used when moving / combining items
+var movedItemReference
+var newItemReference
+
 func _ready():
 	titleText = $Panel/ItemName
 	descText = $Panel/ItemDesc
@@ -34,7 +41,7 @@ func _ready():
 	popupOptions = $Panel/PopupOptions
 	movingIcon = $MovingIcon
 
-func _process(delta):
+func _process(_delta):
 	if moveCancelledEarly and not movingItem:
 		force_reset_ui_elements()
 
@@ -82,11 +89,56 @@ func enable_visible_options(index):
 		$Panel/PopupOptions/Button_Drop.visible = true
 
 func _on_inventory_button_pressed(index):
+	#so here's the deal.
+	#right now I have placed if combineItem first
+	#this is specifically so that this condition is called before moving item, as I am lazy and don't
+	#want to fix my ui. The problem is in the _process method
+	#the ui currently sees moving and combining items as the same process, so to make it easy
+	#I just made both movingItem and combineItem true. This would cause big issues if you ran movingItem
+	#first, but again I am lazy and this """""works"""""
+
+	#this only runs if we have started combining an item, as this changes the context of what we want to do
+	if combineItem:
+		if inventoryArray[index] == null or index == currentWorkingIndex:
+			return
+
+		if inventoryArray[index].Stackable == false:
+			cannotCombineItem()
+
+		movedItemReference = inventoryArray[currentWorkingIndex]
+		newItemReference = inventoryArray[index]
+		##the current working index should get the clicked/new item
+		#inventoryArray[currentWorkingIndex] = newItemReference
+		##the new index should get the currenlty moving item
+		#inventoryArray[index] = movedItemReference
+		##the current working index button should get the clicked item icon, if it is null set it to default texture
+		#if newItemReference == null:
+			#itemGrid.get_child(currentWorkingIndex).icon = defaultInventoryIcon
+		#else:
+			#itemGrid.get_child(currentWorkingIndex).icon = newItemReference.Img
+		##change the equip and ammo count from the old button icon
+		#set_equip_UI(currentWorkingIndex)
+		#set_ammo_count_UI(currentWorkingIndex)
+		##the new button "index" should get the moved item icon
+		#itemGrid.get_child(index).icon = movedItemReference.Img
+		##Set ammo and equiped ui on new item
+		#set_equip_UI(index)
+		#set_ammo_count_UI(index)
+
+		##stop the moving item state
+		#movingItem = false
+		##remove the cancelled bool, as we have "properly" ended the moving state
+		#moveCancelledEarly = false
+		##hide the moving icon
+		#movingIcon.visible = false
+		##end this nonsense
+		#return
+
 	#this only runs if we have started moving an item, as this changes the context of what we want to do
 	if movingItem:
-		var movedItemReference = inventoryArray[currentWorkingIndex]
-		var newItemReference = inventoryArray[index]
-		
+		movedItemReference = inventoryArray[currentWorkingIndex]
+		newItemReference = inventoryArray[index]
+
 		#the current working index should get the clicked/new item
 		inventoryArray[currentWorkingIndex] = newItemReference
 		#the new index should get the currenlty moving item
@@ -96,6 +148,7 @@ func _on_inventory_button_pressed(index):
 			itemGrid.get_child(currentWorkingIndex).icon = defaultInventoryIcon
 		else:
 			itemGrid.get_child(currentWorkingIndex).icon = newItemReference.Img
+	
 		#change the equip and ammo count from the old button icon
 		set_equip_UI(currentWorkingIndex)
 		set_ammo_count_UI(currentWorkingIndex)
@@ -104,16 +157,8 @@ func _on_inventory_button_pressed(index):
 		#Set ammo and equiped ui on new item
 		set_equip_UI(index)
 		set_ammo_count_UI(index)
+		endUIItemMovement()
 
-		#stop the moving item state
-		movingItem = false
-		#remove the cancelled bool, as we have "properly" ended the moving state
-		moveCancelledEarly = false
-		#hide the moving icon
-		movingIcon.visible = false
-		#end this nonsense
-		return
-	
 	#check to see if there is even an item in the selected slot
 	if inventoryArray[index] == null:
 		#close the popup menu
@@ -128,6 +173,26 @@ func _on_inventory_button_pressed(index):
 	popupOptions.position = itemGrid.position + itemGrid.get_child(index).position + popupOffset
 	#set our working index to match the index of the item/button selected
 	currentWorkingIndex = index
+
+func cannotCombineItem():
+	print("Nothing interesting happens")
+	#change the equip and ammo count from the old button icon
+	set_equip_UI(currentWorkingIndex)
+	set_ammo_count_UI(currentWorkingIndex)
+	itemGrid.get_child(currentWorkingIndex).icon = movedItemReference.Img
+	endUIItemMovement()
+
+func endUIItemMovement():
+	#stop the moving item state
+	movingItem = false
+	#stop the combine item state
+	combineItem = false
+	#remove the cancelled bool, as we have "properly" ended the moving state
+	moveCancelledEarly = false
+	#hide the moving icon
+	movingIcon.visible = false
+	#end this nonsense
+	return
 
 func set_ammo_count_UI(index):
 	if inventoryArray[index] == null:
@@ -144,8 +209,7 @@ func set_equip_UI(index):
 	if inventoryArray[index] == null:
 		itemGrid.get_child(index).get_child(0).visible = false
 		return
-		
-	print(inventoryArray[index])
+
 	if inventoryArray[index].IsEquipped:
 		itemGrid.get_child(index).get_child(0).visible = true
 	else:
@@ -158,7 +222,6 @@ func pickup_item(newItem):
 	#loop through the array of inventory slots
 	var items = inventoryArray
 	for i in inventoryArray.size():
-		var item = items[i]
 		#if the slot is empty, and we have not yet identified an empty slot, save a reference to the index
 		if items[i] == null and emptySlot == null:
 			emptySlot = i
@@ -240,6 +303,24 @@ func _on_button_move_button_down():
 
 	#set our bool state, affects things in the process method and other places
 	movingItem = true
+	#set our bool to check if we are cancelling early
+	moveCancelledEarly = true
+
+	#make out moving texture that will follow the mouse visible
+	movingIcon.visible = true
+	#set the icon to match the icon from the item the player wishes to move
+	movingIcon.texture = inventoryArray[currentWorkingIndex].Img
+
+	#close the popup menu
+	popupOptions.visible = false
+
+func _on_button_combine_pressed():
+	#reset the button icon to the empty default
+	itemGrid.get_child(currentWorkingIndex).icon = defaultInventoryIcon
+
+	#set our bool states, affects things in the process method and other places
+	movingItem = true
+	combineItem = true
 	#set our bool to check if we are cancelling early
 	moveCancelledEarly = true
 

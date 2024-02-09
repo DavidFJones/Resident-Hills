@@ -10,7 +10,6 @@ bg_color = Color(0, 0, 0, 0.356863)
 [sub_resource type="Theme" id="Theme_80527"]
 
 [node name="PlayerInventory" type="Control"]
-visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -458,5 +457,6 @@ expand_mode = 2
 [connection signal="pressed" from="Panel/ItemGrid/Button9" to="." method="_on_inventory_button_pressed" binds= [8]]
 [connection signal="pressed" from="Panel/PopupOptions/Button_Equip" to="." method="_on_button_equip_pressed"]
 [connection signal="button_down" from="Panel/PopupOptions/Button_Move" to="." method="_on_button_move_button_down"]
+[connection signal="pressed" from="Panel/PopupOptions/Button_Combine" to="." method="_on_button_combine_pressed"]
 [connection signal="pressed" from="Panel/PopupOptions/Button_Drop" to="." method="_on_button_drop_pressed"]
 [connection signal="pressed" from="Panel/PopupOptions/Button_Cancel" to="." method="_on_button_cancel_pressed"]

@@ -561,6 +561,7 @@ text = "R E F R E S H"
 [connection signal="pressed" from="PlayerInventory/Panel/ItemGrid/Button9" to="PlayerInventory" method="_on_inventory_button_pressed" binds= [8]]
 [connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Equip" to="PlayerInventory" method="_on_button_equip_pressed"]
 [connection signal="button_down" from="PlayerInventory/Panel/PopupOptions/Button_Move" to="PlayerInventory" method="_on_button_move_button_down"]
+[connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Combine" to="PlayerInventory" method="_on_button_combine_pressed"]
 [connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Drop" to="PlayerInventory" method="_on_button_drop_pressed"]
 [connection signal="pressed" from="PlayerInventory/Panel/PopupOptions/Button_Cancel" to="PlayerInventory" method="_on_button_cancel_pressed"]
 [connection signal="pressed" from="PauseUI/Panel/Quit_Button" to="." method="_on_quit_button_pressed"]

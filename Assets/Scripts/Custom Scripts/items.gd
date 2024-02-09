@@ -13,10 +13,6 @@ class_name CustomItems
 @export_group("Stacking Settings")
 ## Used to see if this item should stack in the inventory
 @export var Stackable : bool = false
-## What is the maximum amount for a stack of this item
-@export var MaxStackCount : int = 0
-## How many counts of the item should this specific instance of the item conatain? (IE: should this ammo box start with 5 rounds)
-@export var StartingStackCount : int = 0
 @export_group("Usage Settings")
 ## Is this item equipable? Used later on by the inventory system to handle equip interactions
 @export var Equipable : bool = false
@@ -35,7 +31,8 @@ var IsEquipped : bool = false
 var CurrentAmmo : int = 0
 #used for key items. Allows the game to change if this item can be dropped after certain conditions are met
 var HasBeenUsed : bool = false
-
+#used if we have a specific item in the scene we wish to ignore the spreadsheets data
+@export var ignoreHTTP : bool = false
 #called when this node enters the scene
 func _init():
 	GameManager.register_new_item(self)

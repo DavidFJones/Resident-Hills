@@ -12,13 +12,16 @@ func make_HTTP_item_request(itemsArray):
 	self.request_completed.connect(_on_http_item_request_completed)
 	self.request(ITEM_URL)
 
-func _on_http_item_request_completed(result, response_code, headers, body):
+func _on_http_item_request_completed(_result, _response_code, _headers, body):
 	#get our json from the http request
 	var data = JSON.parse_string(body.get_string_from_utf8())
 
 	#loop through our items and see if we have any relevent json data
 	#if so write over the customitem with the json data
 	for item in customItems:
+		if item.ignoreHTTP == true:
+			print(item)
+			continue
 		var sheetData = find_id_in_dict(data,item.ID)
 		if sheetData != null:
 			item.Name = sheetData.Name
@@ -29,8 +32,6 @@ func _on_http_item_request_completed(result, response_code, headers, body):
 			else:
 				item.Stackable = false
 			item.Description = sheetData.Description
-			item.MaxStackCount = sheetData.MaxStackCount
-			item.StartingStackCount = sheetData.StartingStackCount
 			if sheetData.Equipable == "TRUE":
 				item.Equipable = true
 			else:

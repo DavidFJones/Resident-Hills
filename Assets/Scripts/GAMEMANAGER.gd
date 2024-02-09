@@ -33,7 +33,7 @@ func _ready():
 func register_new_item(item):
 	allItems.append(item)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("input_Pause"):
 		input_Pause()
 
